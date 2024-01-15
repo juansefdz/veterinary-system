@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VETERINARY SYSTEM</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <h1 class="title">VETERINARY SYSTEM</h1>
+    <main class="container">
+      <div class="row bg-white rounded">
+        <!-- columna izquierda-->
+        <div class="col-sm-12 col-md-6">
+          <div class="p-2">
+            <h3>patient information</h3>
+            <form class="needs-validation p-2" novalidate>
+              <div class="mb-3">
+                <!-- PET NAME -->
+                <label for="name_pet">Pet name: </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  id="name_pet"
+                  placeholder="name pet"
+                  maxlength="20"
+                  required
+                />
+                <div class="invalid-feedback">
+                  this information is requiered
+                </div>
+              </div>
+              <!-- OWNER NAME -->
+              <div class="mb-3">
+                <label for="name_pet">Pet owner: </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  id="name_owner"
+                  placeholder="owner name"
+                  maxlength="20"
+                  required
+                />
+                <div class="invalid-feedback">
+                  this information is requiered
+                </div>
+              </div>
+              <!-- PHONE -->
+              <div class="mb-3">
+                <label for="name_pet">Pet owner phone: </label>
+                <input
+                  class="form-control"
+                  type="text"
+                  id="phone"
+                  placeholder="phone: (+57) - "
+                  maxlength="20"
+                  required
+                />
+                <div class="invalid-feedback">
+                  this information is requiered
+                </div>
+              </div>
+              <!--DATA APPOINTMENT  -->
+              <div class="mb-3">
+                <label for="name_pet">date appointment: </label>
+                <input
+                  class="form-control"
+                  type="date"
+                  id="date_appointment"
+                  required
+                />
+                <div class="invalid-feedback">
+                  this information is requiered
+                </div>
+              </div>
+              <!-- TIME APPOINTMENT -->
+              <div class="mb-3">
+                <label for="name_pet">time appointment: </label>
+                <input
+                  class="form-control"
+                  type="time"
+                  id="time_appointment"
+                  maxlength="20"
+                  required
+                />
+                <div class="invalid-feedback">
+                  this information is requiered
+                </div>
+              </div>
+
+              <!--DESCRIPTION  -->
+              <div class="mb-3">
+                <label for="name_pet">Description: </label>
+                <textarea
+                  class="form-control"
+                  id="description"
+                  cols="30"
+                  rows="3"
+                  required
+                ></textarea>
+                <div class="invalid-feedback">
+                  this information is requiered
+                </div>
+              </div>
+              <div id="liveAlertPlaceholder"></div>
+              <button
+                type="submit"
+                id="save_btn"
+                class="btn btn-success w-100"
+                data-bs-dismiss="alert"
+              >
+                save
+              </button>
+            </form>
+          </div>
+        </div>
+        <!-- columna derecha -->
+        <div class="col-sm-12 col-md-6">
+          <div class="p-2 appointment_zone">
+            <h3>appointment information</h3>
+            <div class="mb-3">
+              <div class="mb-3">
+                <div class="dropdown-item">
+                  <button
+                    class="btn btn-secondary btn-lg dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Appointments
+                  </button>
+                  <ul 
+                  class="dropdown-menu" 
+                  id="app_List"
+                  title="Appointment"></ul>
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="appointment_container">
+                  <div class="alert alert-danger" role="alert">
+                    No appointments selected or registered, please choose or register one.
+                  </div>
+                </div>
+                <div class="button_zone"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/boostrapValidation.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>

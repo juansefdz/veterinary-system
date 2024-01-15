@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Genos:wght@100&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Genos", sans-serif;
+  font-weight:600;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgb(206, 231, 218);
+  background: linear-gradient(
+    130deg,
+    rgba(206, 231, 218, 1) 0%,
+    rgba(182, 255, 237, 1) 23%,
+    rgba(199, 225, 237, 1) 74%,
+    rgba(219, 227, 237, 1) 100%
+  );
+}
+
+.title{
+    font-size: 50px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 15px #000;
+    font-weight:400;
+
+}
