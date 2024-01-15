@@ -4,9 +4,6 @@ const appointment = document.getElementById("appointment");
 const saveAppointment = document.getElementById("save_btn");
 
 //events or listeners
-document.addEventListener("DOMContentLoaded", function (event) {
-  event.preventDefault();
-});
 
 saveAppointment.addEventListener("click", (event) => {
   event.preventDefault();
@@ -42,7 +39,7 @@ function printAppointment() {
 
   cites.unshift(cita);
 
-  //localStorage.setItem("citasVeterinaria", JSON.stringify(cites));
+  localStorage.setItem("citasVeterinaria", JSON.stringify(cites));
 
   appointmentList();
   appointmentListInfo.addEventListener("click", (event) => {
@@ -91,6 +88,7 @@ function selectCite(ownerPet) {
       editAppointmentBtn.textContent = "Edit";
       editAppointmentBtn.classList.add("btn", "btn-warning", "w-40");
       editAppointmentBtn.id = "editAppointmentBtn";
+      editAppointmentBtn.addEventListener("click", () => editAppointment(cita));
 
       //delete appointment
 
@@ -99,7 +97,12 @@ function selectCite(ownerPet) {
       deleteAppointmentBtn.classList.add("btn", "btn-danger", "w-40");
       deleteAppointmentBtn.id = "deleteAppointmentBtn";
 
-      
+      deleteAppointmentBtn.addEventListener("click", () => {
+        deleteAppointment(cita);
+        appointmentContainer.textContent = "";
+        buttonZone.textContent = "";
+      });
+
       //appendchild buttons (delete - edit)
 
       const buttonZone = document.querySelector(".button_zone");
@@ -108,4 +111,40 @@ function selectCite(ownerPet) {
       buttonZone.appendChild(deleteAppointmentBtn);
     }
   });
+}
+
+function editAppointment(cita) {
+  const petNameInput = document.getElementById("name_pet");
+  const ownerNameInput = document.getElementById("name_owner");
+  const phoneInput = document.getElementById("phone");
+  const dateAppointmentInput = document.getElementById("date_appointment");
+  const timeAppointmentInput = document.getElementById("time_appointment");
+  const descriptionInput = document.getElementById("description");
+
+  petNameInput.value = cita.petName;
+  ownerNameInput.value = cita.ownerName;
+  phoneInput.value = cita.phone;
+  dateAppointmentInput.value = cita.dateAppointment;
+  timeAppointmentInput.value = cita.timeAppointment;
+  descriptionInput.value = cita.description;
+
+  const saveButton = document.getElementById("save_btn");
+  saveButton.textContent = "Save Changes";
+  saveButton.removeEventListener("click", printAppointment);
+  saveButton.addEventListener("click", () => saveChanges(cita));
+}
+
+function deleteAppointment(cita) {
+  const index = cites.indexOf(cita);
+  if (index !== -1) {
+    cites.splice(index, 1);
+    appointmentList();
+    document.getElementById("name_pet").value = "";
+    document.getElementById("name_owner").value = "";
+    document.getElementById("phone").value = "";
+    document.getElementById("date_appointment").value = "";
+    document.getElementById("time_appointment").value = "";
+    document.getElementById("description").value = "";
+    alert("Appointment Deleted");
+  }
 }
